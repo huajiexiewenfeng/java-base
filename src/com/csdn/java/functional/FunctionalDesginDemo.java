@@ -7,6 +7,8 @@ public class FunctionalDesginDemo {
         Function function = a -> a;
 
         Function<Integer,Integer> function2 = a -> a / 2;
+        Integer apply = function2.apply(4);
+        System.out.println(apply);
     }
 
 }
