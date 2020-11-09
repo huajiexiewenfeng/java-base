@@ -1,12 +1,23 @@
 package com.csdn.java.stream;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void main(String[] args) {
-        count(1, 2, 3, 4, 5, 6);
-        parallelSort(1, 2, 3, 4, 5, 6);
+//        count(1, 2, 3, 4, 5, 6);
+//        parallelSort(1, 2, 3, 4, 5, 6);
+        map();
     }
+
+    private static void map() {
+        List<String> userNames = User.getUsers().stream().map(User::getName)
+            .collect(Collectors.toList());
+        System.out.println(userNames);
+    }
+
+
 
     private static void parallelSort(Integer... numbers) {
         Stream.of(numbers).sorted().parallel().forEach(StreamDemo::println);
